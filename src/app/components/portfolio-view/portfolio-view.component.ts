@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core'
 import { ColDef } from 'ag-grid-community'
 import { ClientPortfolio } from '../../models/client-portfolio'
 import { PortfolioService } from '../../services/portfolio.service'
+import { BuyButtonComponent } from '../../grid-renderers/buy-button/buy-button.component'
+import { SellButtonComponent } from '../../grid-renderers/sell-button/sell-button.component'
 
 @Component({
   selector: 'app-portfolio-view',
@@ -18,7 +20,6 @@ export class PortfolioViewComponent implements OnInit {
   }
 
   loadPortfolioData() {
-    // For now, we'll use a hardcoded client ID. This should be replaced with the actual client ID when available.
     const clientId = 1
     this.portfolioService.getClientPortfolio(clientId).subscribe(
       (data) => {
@@ -60,5 +61,21 @@ export class PortfolioViewComponent implements OnInit {
       suppressMovable: true,
       valueFormatter: (params) => `$${params.value.toFixed(2)}`,
     },
+    {
+      headerName: 'Buy',
+      cellRenderer: BuyButtonComponent,
+      flex: 1,
+      suppressMovable: true,
+    },
+    {
+      headerName: 'Sell',
+      cellRenderer: SellButtonComponent,
+      flex: 1,
+      suppressMovable: true,
+    },
   ]
+
+  getTotalValue(): number {
+    return this.portfolioData.reduce((total, item) => total + item.cashValue, 0)
+  }
 }

@@ -28,14 +28,15 @@ import { ClientRegistrationComponent } from './components/client-registration/cl
 import { LandingPageComponent } from './components/landing-page/landing-page.component'
 import { MatDatepickerModule } from '@angular/material/datepicker'
 import { MatNativeDateModule } from '@angular/material/core'
-import { BackButtonDisableModule } from 'angular-disable-browser-back-button';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { BackButtonDisableModule } from 'angular-disable-browser-back-button'
+import { DashboardComponent } from './components/dashboard/dashboard.component'
 import { NavbarComponent } from './components/navbar/navbar.component'
 import { ReportClientActivityComponent } from './components/report-client-activity/report-client-activity.component'
 import { TradeHistoryComponent } from './components/trade-history/trade-history.component'
 import { PortfolioViewComponent } from './components/portfolio-view/portfolio-view.component'
 import { MatGridListModule } from '@angular/material/grid-list'
 import { MatDividerModule } from '@angular/material/divider'
+import { BuyButtonComponent } from './grid-renderers/buy-button/buy-button.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +54,8 @@ import { MatDividerModule } from '@angular/material/divider'
     NavbarComponent,
     ReportClientActivityComponent,
     TradeHistoryComponent,
-    PortfolioViewComponent
+    PortfolioViewComponent,
+    BuyButtonComponent,
   ],
   imports: [
     BrowserModule,
