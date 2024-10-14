@@ -15,9 +15,21 @@
   align-items: center;
 }
 
+.nav-btn button {
+  display: flex;
+  align-items: center;
+}
+
 .logo {
   width: 30px;
-
-
   margin-right: 10px;
+}
+
+.brand-text {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-btn button mat-icon {
+  margin-right: 5px;
 }
