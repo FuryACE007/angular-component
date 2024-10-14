@@ -1,0 +1,65 @@
+<div class="login-container">
+  <h2>Client Login</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <mat-card appearance="outlined" class="form-group">
+      <mat-card-content>
+        <label for="username">Email ID:</label>
+        <input
+          id="username"
+          formControlName="username"
+          type="email"
+          class="form-control"
+        />
+        <section
+          *ngIf="
+            loginForm.get('username')?.invalid &&
+            loginForm.get('username')?.touched
+          "
+        >
+          <small
+            *ngIf="loginForm.get('username')?.errors?.['required']"
+            class="error"
+            >Email ID is required!</small
+          >
+          <small
+            *ngIf="loginForm.get('username')?.errors?.['email']"
+            class="error"
+            >Invalid Email ID!</small
+          >
+        </section>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card appearance="outlined" class="form-group">
+      <mat-card-content>
+        <label for="password">Password:</label>
+        <input
+          id="password"
+          formControlName="password"
+          type="password"
+          class="form-control"
+        />
+        <section
+          *ngIf="
+            loginForm.get('password')?.invalid &&
+            loginForm.get('password')?.touched
+          "
+        >
+          <small class="error">Password is required!</small>
+        </section>
+      </mat-card-content>
+    </mat-card>
+
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="loginForm.invalid"
+    >
+      Login
+    </button>
+  </form>
+
+  <div *ngIf="loginStatus" class="login-status">
+    {{ loginStatus }}
+  </div>
+</div>

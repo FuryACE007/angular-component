@@ -1,0 +1,63 @@
+.grid-container {
+  justify-content: center;
+  display: flex;
+  height: 60vh;
+}
+* {
+  font-family: Roboto;
+}
+.date-picker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Apply the Quartz theme */
+.ag-theme-quartz {
+  --ag-background-color: #f9f9f9;
+  --ag-header-background-color: #4caf50;
+  --ag-header-foreground-color: #fff;
+  --ag-odd-row-background-color: #f2f2f2;
+  --ag-even-row-background-color: #fff;
+  --ag-font-family: "Arial, sans-serif";
+  --ag-font-size: 14px;
+  --ag-cell-horizontal-padding: 10px;
+}
+
+/* Header styling */
+.ag-theme-quartz .ag-header-cell {
+  background-color: var(--ag-header-background-color);
+  color: var(--ag-header-foreground-color);
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Row styling */
+.ag-theme-quartz .ag-row:nth-child(odd) {
+  background-color: var(--ag-odd-row-background-color);
+}
+
+.ag-theme-quartz .ag-row:nth-child(even) {
+  background-color: var(--ag-even-row-background-color);
+}
+
+/* Cell styling */
+.ag-theme-quartz .ag-cell {
+  padding: var(--ag-cell-horizontal-padding);
+  border-bottom: 1px solid #ddd;
+}
+
+/* Hover effect */
+.ag-theme-quartz .ag-row:hover {
+  background-color: #e0e0e0;
+}
+
+/* Gain column specific styling */
+.ag-theme-quartz .ag-cell[col-id="gain"] {
+  font-weight: bold;
+  color: green;
+}
+
+button {
+  margin: 10px;
+}

@@ -1,0 +1,63 @@
+<div class="preference-container">
+<form [formGroup]="form" class="form" (ngSubmit)="add()">
+  <button  id="back" (click)="callRegistrationForm()" mat-raised-button>
+    <mat-icon>arrow_back</mat-icon>
+     </button>
+  <header><h2>Investment Preference Form</h2></header>
+  <mat-card appearance="outlined">
+    <mat-card-content>
+      <label for="investment-purpose">Investment purpose: </label>
+      <input
+        id="investment-purpose"
+        type="text"
+        class="form-control"
+        formControlName="investmentPurpose"
+    /></mat-card-content>
+  </mat-card>
+  <mat-card appearance="outlined">
+    <mat-card-content
+      ><label for="risk-tolerance">Risk Tolerance: </label
+      ><select  class="form-control" formControlName="riskTolerance">
+        <option [ngValue]="r" *ngFor="let r of r">
+          {{ r.t }}
+        </option>
+      </select>
+    </mat-card-content>
+  </mat-card>
+  <mat-card appearance="outlined">
+    <mat-card-content
+      ><label for="income-category">Income Category: </label>
+      <select  class="form-control" formControlName="incomeCategory">
+        <option [ngValue]="i" *ngFor="let i of i">
+          {{ i.c }}
+        </option>
+      </select></mat-card-content
+    >
+  </mat-card>
+  <mat-card appearance="outlined">
+    <mat-card-content
+      ><label for="length-investment">Length of Investment: </label
+      ><select  class="form-control" formControlName="lengthOfInvestment">
+        <option [ngValue]="l" *ngFor="let l of l">
+          {{ l.i }}
+        </option>
+      </select>
+    </mat-card-content>
+  </mat-card>
+  <mat-card appearance="outlined" style="text-align: center">
+    <mat-card-content></mat-card-content>
+    <mat-checkbox style="padding-bottom: 10px" color="secondary"
+      >Check box to use Robo Advisor</mat-checkbox
+    >
+  </mat-card>
+  <mat-card appearance="outlined">
+    <mat-card-content class="btn">
+      <button type="submit" [disabled]="!form.valid" [routerLink]="['/home']" mat-raised-button>
+        Submit
+      </button>
+    </mat-card-content>
+  </mat-card>
+  
+</form>
+</div>
+

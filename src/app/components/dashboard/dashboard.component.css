@@ -1,0 +1,14 @@
+.chart-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 50%;
+  margin: 3rem auto;
+  padding-left: 2rem ;
+}
+
+#pieChart {
+  width: 50%;
+}
+#lineChart {
+    width: 50%;
+}

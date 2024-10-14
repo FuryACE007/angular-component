@@ -1,0 +1,25 @@
+<div class="app-container">
+  <nav class="nav-bar">
+    <div class="logo-container">
+      <img src="../../../assets/images/herodha.png" alt="logo" class="logo" />
+      <span class="brand-text">Herodha</span>
+    </div>
+  </nav>
+  <header>{{ title }} Client Registration Portal</header>
+  <div class="container">
+    <div *ngIf="showLogin; else registrationForm">
+      <app-client-login></app-client-login>
+      <p>New user? <a href="#" (click)="toggleForm()" >Sign Up</a></p>
+    </div>
+    <ng-template #registrationForm>
+      <app-client-registration (showForm)="showForm($event)" *ngIf="!regFormVisible"></app-client-registration>
+      <app-investment-preference (showForm)="showRegForm($event)" *ngIf="regFormVisible"></app-investment-preference>
+      <p>
+        Already have an account? <a href="#" (click)="toggleForm()">Log in</a>
+      </p>
+    </ng-template>
+    <footer style="text-align: center;">
+        <h5>Copyright &copy; Fidelity Investment {{ date | date }}</h5>
+      </footer>
+  </div>
+</div>

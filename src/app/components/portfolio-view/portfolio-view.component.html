@@ -1,0 +1,50 @@
+<app-navbar></app-navbar>
+<div class="portfolio-container">
+  <mat-card class="portfolio-grid">
+    <mat-card-header>
+      <mat-card-title>Portfolio Holdings</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <ag-grid-angular
+        class="ag-theme-quartz"
+        style="width: 100%; height: 500px"
+        [rowData]="portfolioData"
+        [columnDefs]="colDefs"
+        [pagination]="true"
+        [paginationPageSize]="10"
+      >
+      </ag-grid-angular>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="portfolio-summary">
+    <mat-card-header>
+      <mat-card-title>Portfolio Summary</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="summary-item">
+        <mat-icon>account_balance</mat-icon>
+        <div class="summary-text">
+          <h3>Total Value</h3>
+          <!-- <p>{{ getTotalValue() | currency }}</p> -->
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="summary-item">
+        <mat-icon>bar_chart</mat-icon>
+        <div class="summary-text">
+          <h3>Number of Instruments</h3>
+          <p>{{ portfolioData.length }}</p>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+      <!-- <div class="summary-item">
+        <mat-icon>trending_up</mat-icon>
+        <div class="summary-text">
+          <h3>Top Performing</h3>
+          <p>{{ getTopPerforming() }}</p>
+        </div>
+      </div> -->
+    </mat-card-content>
+  </mat-card>
+</div>

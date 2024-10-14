@@ -1,0 +1,18 @@
+<!-- <div class="list-container">
+    <mat-card appearance="outlined" *ngFor="let item of tradeHistoryData">
+        <mat-card-header>{{item.instrumentId}}</mat-card-header>
+        <mat-card-subtitle>{{item.direction}}</mat-card-subtitle>
+        <mat-card-content>{{item.amount}}</mat-card-content>
+        <mat-card-content>{{item.price}}</mat-card-content>
+        <mat-card-footer>{{item.transactionDate | date:'medium' }}</mat-card-footer>
+      </mat-card> 
+</div> -->
+<app-navbar></app-navbar>
+<div class="grid-container">
+  <ag-grid-angular
+    style="height: 100%; width: 70%"
+    class="ag-theme-quartz"
+    [rowData]="tradeHistoryData"
+    [columnDefs]="colDefs"
+  />
+</div>

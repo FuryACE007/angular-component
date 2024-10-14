@@ -1,0 +1,67 @@
+header {
+  font-size: 30px;
+
+  text-align: center;
+
+  margin-top: 15px;
+}
+
+.nav-bar {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 10px 20px;
+
+  background-color: black;
+
+  color: white;
+
+  /* width: 100%; */
+}
+
+.logo-container {
+  display: flex;
+
+  align-items: center;
+}
+
+.logo {
+  height: 40px;
+
+  width: 40px;
+
+  margin-right: 10px;
+}
+
+.brand-text {
+  font-size: 24px;
+
+  font-weight: bold;
+}
+
+.container {
+  max-width: 400px;
+
+  margin: 0 auto;
+
+  padding: 20px;
+}
+
+a {
+  cursor: pointer;
+
+  color: #007bff;
+
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+p {
+  margin-top: 10px;
+}

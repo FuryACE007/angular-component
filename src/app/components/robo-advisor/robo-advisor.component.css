@@ -1,0 +1,13 @@
+.btn {
+    display: flex;
+    justify-content: center;
+  }
+  .advisor{
+    text-align: center;
+    font-size: large;
+  }
+  .robo{
+   display: flex;
+   justify-content: space-between;
+  }
+  

@@ -1,0 +1,161 @@
+<div class="registration-container">
+  <h2>Registration Form</h2>
+  <form [formGroup]="registrationForm" class="form" (ngSubmit)="onSubmit()">
+    <mat-card appearance="outlined">
+      <mat-card-content>
+        <label for="name">Name:</label>
+        <input
+          id="name"
+          formControlName="name"
+          type="text"
+          class="form-control"
+          required
+        />
+        <div
+          *ngIf="
+            registrationForm.get('name')?.invalid &&
+            registrationForm.get('name')?.touched
+          "
+        >
+          <small class="error">Name is required!</small>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <mat-card appearance="outlined">
+      <mat-card-content>
+        <label for="email">Email Address:</label>
+        <input
+          id="email"
+          formControlName="email"
+          type="email"
+          class="form-control"
+          required
+        />
+        <div
+          *ngIf="
+            registrationForm.get('email')?.invalid &&
+            registrationForm.get('email')?.touched
+          "
+        >
+          <small class="error">Please enter a valid Email</small>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card appearance="outlined">
+      <mat-card-content>
+        <label for="oassword">Create Password:</label>
+        <input
+          id="password"
+          formControlName="password"
+          type="password"
+          class="form-control"
+          required
+        />
+        <div
+          *ngIf="
+            registrationForm.get('password')?.invalid &&
+            registrationForm.get('password')?.touched
+          "
+        >
+          <small class="error"
+            >Password is required with a minimum of 6 characters!</small
+          >
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card appearance="outlined">
+      <mat-card-content>
+        <label for="country">Country:</label>
+        <select
+          id="country"
+          formControlName="country"
+          class="form-control"
+          (change)="onCountryChange()"
+        >
+          <option value="">Select Country</option>
+          <option value="US">US</option>
+          <option value="India">India</option>
+        </select>
+        <div
+          *ngIf="
+            registrationForm.get('country')?.invalid &&
+            registrationForm.get('country')?.touched
+          "
+        >
+          <small class="error">Country is required</small>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card
+      appearance="outlined"
+      *ngIf="registrationForm.get('country')?.value === 'US'"
+    >
+      <mat-card-content>
+        <label for="ssn">SSN:</label>
+        <input
+          id="ssn"
+          formControlName="identificationValue"
+          class="form-control"
+          type="text"
+          required
+        />
+        <div
+          *ngIf="
+            registrationForm.get('identificationValue')?.invalid &&
+            registrationForm.get('identificationValue')?.touched
+          "
+        >
+          <small class="error"
+            >SSN is required and must be in the form of XXX-XX-XXXX</small
+          >
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card
+      appearance="outlined"
+      *ngIf="registrationForm.get('country')?.value === 'India'"
+    >
+      <mat-card-content>
+        <label for="pan">PAN Number:</label>
+        <input
+          id="pan"
+          formControlName="identificationValue"
+          type="text"
+          class="form-control"
+          required
+        />
+        <div
+          *ngIf="
+            registrationForm.get('identificationValue')?.invalid &&
+            registrationForm.get('identificationValue')?.touched
+          "
+        >
+          <small class="error"
+            >PAN Number is required and must be in the form of AAAAA9999A</small
+          >
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card appearance="outlined">
+      <mat-card-content class="btn">
+        <button
+          type="submit"
+          [disabled]="registrationForm.invalid"
+          mat-raised-button
+          (click)="callInvestmentPrefForm()"
+        >
+          Next
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </form>
+
+  <section *ngIf="registrationStatus" class="status-message">
+    {{ registrationStatus }}
+  </section>
+</div>

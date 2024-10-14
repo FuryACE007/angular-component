@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+<div class="robo" *ngIf="true">
+  <mat-card appearance="outlined" *ngFor="let stock of stocks">
+      <mat-card-content class="content"
+        >{{ stock.ticker }}&emsp;{{ stock.price }}&emsp;<button mat-button>
+          Buy
+        </button></mat-card-content
+      >
+    </mat-card>
+  <!-- <div *ngIf="true">
+    <mat-card appearance="outlined" class="advisor">
+      <mat-card-content
+        >Do you want to use Robo Advisor
+
+        <div *ngFor="let item of checklist">
+          <mat-checkbox
+            value="{{ item.id }}"
+            [checked]="item.isSelected"
+            (change)="isAllSelected(item)"
+            style="padding-bottom: 10px"
+            color="primary"
+            >{{ item.value }}</mat-checkbox
+          >
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <mat-card appearance="outlined">
+      <mat-card-content class="btn">
+        <button  mat-raised-button>Submit</button>
+      </mat-card-content>
+    </mat-card>
+  </div> -->
+</div>
